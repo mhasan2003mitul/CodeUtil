@@ -26,4 +26,25 @@ public class PrimeUtil{
         }        
         return true;
     }
+    
+    public boolean isPrime(int num){
+       // System.out.println(num);
+        if(num <= 1){
+            return false;
+        }else if(num <= 3){
+            return true;
+        }else if(num % 2 == 0 || num % 3 == 0 ){
+            return false;
+        }
+
+        int nextSeq = 5;
+        
+        while(nextSeq * nextSeq <= num){
+            if(num % nextSeq == 0 || num % (nextSeq + 2) == 0){
+                return false;
+            }
+            nextSeq = nextSeq + 6;
+        }        
+        return true;
+    }    
 }
