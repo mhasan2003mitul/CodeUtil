@@ -25,14 +25,15 @@ public class InsertionSort {
     }
 
     private static int[] insertionSort(int []val){
-        for(int i = 0; i<val.length;i++){
-            int a = val[i];
-            int position = i;
-            while(position > 0 && val[position - 1 ] > a){
-                val[position] = val[position - 1];
-                position --;
+        for(int i = 1; i<val.length;i++){
+            int value = val[i];
+            int j = i - 1;
+            while(j >= 0 && val[j] > value){
+                int temp = val[j];
+                val[j] = val[j + 1];
+                val[j + 1] = temp;
+                j --;
             }
-            val[position] = a;
         }
         return val;
     }
